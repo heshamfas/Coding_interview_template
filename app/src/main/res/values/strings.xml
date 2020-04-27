@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">L Coding Ex</string>
+    <string name="Lookup">Lookup</string>
+    <string name="city_name">City Name</string>
+    <string name="temp">Temp: %s</string>
+    <string name="feals_like">Feels Like: %s</string>
+    <string name="request_error">An error has occurred \n please try again</string>
+    <item name="button_with_percent" format="float" type="integer">0.5</item>
+    <item name="city_edit_with_percent" format="float" type="integer">0.7</item>
+</resources>
