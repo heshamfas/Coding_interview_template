@@ -9,18 +9,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import com.heshamfas.lcodingex.MainActivity
 import com.heshamfas.lcodingex.R
 import com.heshamfas.lcodingex.entities.Climate
 import kotlinx.android.synthetic.main.weather_detail_fragment.*
-import kotlinx.android.synthetic.main.weather_list_fragment.*
 
 class WeatherDetailFragment : Fragment() {
 
     private val TAG by lazy { this::class.java.simpleName }
-    private val viewModel: MainViewModel by activityViewModels()
     private val args: WeatherDetailFragmentArgs by navArgs()
-
+    private val viewModel: MainViewModel by activityViewModels{ VMFactory(args.cityName)}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

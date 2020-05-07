@@ -21,7 +21,7 @@ class WeatherListFragment : Fragment() {
     private val args: WeatherListFragmentArgs by navArgs()
 
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels{VMFactory(args.cityName)}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +34,6 @@ class WeatherListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         initUi()
         initObservers()
-        viewModel.getCityDataByName(args.cityName)
     }
 
     override fun onResume() {

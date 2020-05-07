@@ -1,5 +1,6 @@
 package com.heshamfas.lcodingex.ui.main
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.heshamfas.lcodingex.entities.CityData
@@ -7,13 +8,25 @@ import com.heshamfas.lcodingex.model.WeatherModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
+import kotlin.reflect.KProperty
 
-class MainViewModel : ViewModel() {
+class MainViewModel constructor(): ViewModel() {
+    lateinit var city : String
 
+    constructor(city: String) : this() {
+        this.city = city
+}
+/*    constructor(cityName: String){
+
+    }*/
     private val TAG by lazy { this::class.java.simpleName }
     val model = WeatherModel.shared
     private val disposables = CompositeDisposable()
-    val weatherResponse = MutableLiveData<CityData>()
+
+     val weatherResponse: MutableLiveData<CityData> by lazy {
+         MutableLiveData<CityData>() . also { getCityDataByName(city) }
+     }
+
     val responseError = MutableLiveData<Throwable>()
 
     fun getCityDataByName(city:String){
@@ -35,3 +48,6 @@ class MainViewModel : ViewModel() {
         disposables.dispose()
     }
 }
+
+
+
