@@ -5,6 +5,10 @@
     <string name="temp">Temp: %s</string>
     <string name="feals_like">Feels Like: %s</string>
     <string name="request_error">An error has occurred \n please try again</string>
+    <string name="number_of_sat_takers">Number of SAT takers</string>
+    <string name="sat_math_average_score">SAT math average score</string>
+    <string name="sat_average_writing_score">SAT average writing score</string>
+    <string name="sat_critical_reading_average_score">SAT critical reading average score</string>
     <item name="button_with_percent" format="float" type="integer">0.5</item>
     <item name="city_edit_with_percent" format="float" type="integer">0.7</item>
 </resources>
