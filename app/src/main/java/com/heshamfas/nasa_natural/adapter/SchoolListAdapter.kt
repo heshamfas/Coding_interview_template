@@ -31,7 +31,7 @@ class SchoolListAdapter(
 
     override fun onBindViewHolder(holder: SchoolViewHolder, position: Int) {
         holder.onBind(
-            schools.get(position),detailsAction )
+            schools.get(position)/*,detailsAction */)
         Log.d(TAG, "onBindView Holder " + schools.get(position))
     }
 /*

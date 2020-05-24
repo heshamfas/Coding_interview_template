@@ -13,8 +13,8 @@ class SchoolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tvTemp by lazy { itemView.findViewById<TextView>(R.id.tv_tem) }
 
     fun onBind(
-        earthInfo: EarthInfo,
-        climateDetailOnClickAction: (String, String) -> Unit
+        earthInfo: EarthInfo/*,
+        climateDetailOnClickAction: (String, String) -> Unit*/
     ) {
 
         tvSchool.text = earthInfo.caption
