@@ -6,7 +6,7 @@
     app:startDestination="@id/schoolListFragment">
     <fragment
         android:id="@+id/schoolListFragment"
-        android:name="com.heshamfas.ny_data.ui.main.SchoolListFragment"
+        android:name="com.heshamfas.nasa_natural.ui.main.NaturalListFragment"
         android:label="NY Schools"
         tools:layout="@layout/school_list_fragment" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/satDetailFragment"
-        android:name="com.heshamfas.ny_data.ui.main.SATDetailFragment"
+        android:name="com.heshamfas.nasa_natural.ui.main.SATDetailFragment"
         android:label="{school_name}"
         tools:layout="@layout/sat_detail_fragment" >
         <argument

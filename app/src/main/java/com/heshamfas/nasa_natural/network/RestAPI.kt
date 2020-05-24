@@ -1,6 +1,6 @@
-package com.heshamfas.ny_data.network
+package com.heshamfas.nasa_natural.network
 
-import com.heshamfas.ny_data.BuildConfig
+import com.heshamfas.nasa_natural.BuildConfig
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

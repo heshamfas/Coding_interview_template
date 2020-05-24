@@ -1,4 +1,4 @@
-package com.heshamfas.ny_data
+package com.heshamfas.nasa_natural
 
 import org.junit.Test
 

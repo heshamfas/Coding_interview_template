@@ -1,4 +1,4 @@
-package com.heshamfas.ny_data.ui.main
+package com.heshamfas.nasa_natural.ui.main
 
 import android.os.Bundle
 import android.util.Log
@@ -10,14 +10,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 
-import com.heshamfas.ny_data.R
-import com.heshamfas.ny_data.adapter.SchoolListAdapter
-import com.heshamfas.ny_data.entities.NYSchool
+import com.heshamfas.nasa_natural.R
+import com.heshamfas.nasa_natural.adapter.SchoolListAdapter
+import com.heshamfas.nasa_natural.entities.EarthInfo
 import kotlinx.android.synthetic.main.school_list_fragment.*
 
-class SchoolListFragment : Fragment() {
+class NaturalListFragment : Fragment() {
     private val TAG by lazy { this::class.java.simpleName }
     private val viewModel: MainViewModel by activityViewModels()
 
@@ -41,9 +40,9 @@ class SchoolListFragment : Fragment() {
    private fun initUi(){
     }
     private fun initObservers(){
-        viewModel.nyEdu.observe(viewLifecycleOwner , Observer{
+        viewModel.nasaNatural.observe(viewLifecycleOwner , Observer{
             tv_error.visibility = View.GONE
-            Log.d(TAG, "schools are here ${it}")
+            Log.d(TAG, "earth info is here ${it}")
             processClimates(it)
         })
         viewModel.responseError.observe(viewLifecycleOwner, Observer {
@@ -56,7 +55,7 @@ class SchoolListFragment : Fragment() {
         tv_error.text = "${getString(R.string.request_error)}  \n ${error?.localizedMessage}"
     }
 
-    private fun processClimates(climates: List<NYSchool>?) {
+    private fun processClimates(climates: List<EarthInfo>?) {
         if (!climates.isNullOrEmpty()) {
             Log.d(TAG, "climates are here ${climates.count()}")
             rv_ny_city_school.adapter = SchoolListAdapter(
@@ -71,7 +70,7 @@ class SchoolListFragment : Fragment() {
        goToClimateDetail(dbn,name)
     }
     private fun goToClimateDetail(dbn:String, name:String){
-            val directions:NavDirections = SchoolListFragmentDirections.actionSchoolListFragmentToSatDetailFragment(dbn,name)
-        findNavController().navigate(directions)
+   /*         val directions:NavDirections = SchoolListFragmentDirections.actionSchoolListFragmentToSatDetailFragment(dbn,name)
+        findNavController().navigate(directions)*/
     }
 }

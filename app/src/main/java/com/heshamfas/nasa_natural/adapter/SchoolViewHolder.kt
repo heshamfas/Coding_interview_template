@@ -1,10 +1,10 @@
-package com.heshamfas.ny_data.adapter
+package com.heshamfas.nasa_natural.adapter
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.heshamfas.ny_data.R
-import com.heshamfas.ny_data.entities.NYSchool
+import com.heshamfas.nasa_natural.R
+import com.heshamfas.nasa_natural.entities.EarthInfo
 
 class SchoolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -13,14 +13,14 @@ class SchoolViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tvTemp by lazy { itemView.findViewById<TextView>(R.id.tv_tem) }
 
     fun onBind(
-        school: NYSchool,
+        earthInfo: EarthInfo,
         climateDetailOnClickAction: (String, String) -> Unit
     ) {
 
-        tvSchool.text = school.school_name
+        tvSchool.text = earthInfo.caption
 
         itemView.setOnClickListener {
-            climateDetailOnClickAction(school.dbn,school.school_name)
+            //climateDetailOnClickAction(school.dbn,school.school_name)
         }
         }
     }

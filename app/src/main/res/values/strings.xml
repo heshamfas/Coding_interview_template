@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">L Coding Ex</string>
+    <string name="app_name">Nasa Natural</string>
     <string name="Lookup">Lookup</string>
     <string name="city_name">City Name</string>
     <string name="temp">Temp: %s</string>

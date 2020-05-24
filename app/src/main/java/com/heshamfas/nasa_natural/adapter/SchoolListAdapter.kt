@@ -1,18 +1,17 @@
-package com.heshamfas.ny_data.adapter
+package com.heshamfas.nasa_natural.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.heshamfas.ny_data.R
-import com.heshamfas.ny_data.entities.NYSchool
+import com.heshamfas.nasa_natural.R
+import com.heshamfas.nasa_natural.entities.EarthInfo
 
 class SchoolListAdapter(
-    var schools: MutableList<NYSchool>,
+    var schools: MutableList<EarthInfo>,
     val detailsAction: (String,String) -> Unit
 ) : RecyclerView.Adapter<SchoolViewHolder>() {
-    private val TAG by lazy { this::class.java.simpleName
-    }
+    private val TAG by lazy { this::class.java.simpleName }
 
 
     init {
@@ -26,6 +25,7 @@ class SchoolListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SchoolViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val itemView = inflater.inflate(R.layout.school_list_item, parent, false)
+        Log.d(TAG, "onCreateViewHolder()")
         return SchoolViewHolder(itemView)
     }
 
@@ -34,9 +34,9 @@ class SchoolListAdapter(
             schools.get(position),detailsAction )
         Log.d(TAG, "onBindView Holder " + schools.get(position))
     }
-
+/*
     fun resetList(orders: List<NYSchool>) {
         this.schools = orders.toMutableList()
         notifyDataSetChanged()
-    }
+    }*/
 }
