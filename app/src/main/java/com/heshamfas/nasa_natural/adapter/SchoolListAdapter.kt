@@ -8,9 +8,7 @@ import com.heshamfas.nasa_natural.R
 import com.heshamfas.nasa_natural.entities.EarthInfo
 
 class SchoolListAdapter(
-    var schools: MutableList<EarthInfo>,
-    val detailsAction: (String,String) -> Unit
-) : RecyclerView.Adapter<SchoolViewHolder>() {
+    var schools: MutableList<EarthInfo>) : RecyclerView.Adapter<SchoolViewHolder>() {
     private val TAG by lazy { this::class.java.simpleName }
 
 

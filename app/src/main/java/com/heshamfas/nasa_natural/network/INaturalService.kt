@@ -9,7 +9,8 @@ import retrofit2.http.Query
 
 interface INaturalService {
 
-    @GET("api/enhanced/date{date}/")
+    @GET("/api/enhanced/")
     fun getNasaNatural(@HeaderMap  headers:Map<String, String> = mapOf("Accept" to "application/json")
-    , @Path("date") date:String): Single<NasaNatural>
+    ,@Query("api_key") apiKey :String = "DEMO_KEY"): Single<NasaNatural>
+
 }

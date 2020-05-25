@@ -16,7 +16,7 @@ class NaturalNetworkCall {
     }
 
     fun getEarthInfoListForToday(subscription: Scheduler = Schedulers.io(), observeScheduler: Scheduler = AndroidSchedulers.mainThread()): Single<NasaNatural> {
-                return restAPI.getNasaNatural(date = getTodayDate())
+                return restAPI.getNasaNatural(/*date = getTodayDate()*/)
                     .subscribeOn(subscription)
                     .observeOn(observeScheduler)
     }

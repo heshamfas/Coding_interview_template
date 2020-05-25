@@ -3,17 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_height"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.appcompat.widget.AppCompatImageView
-    android:id="@+id/iv_planet"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintVertical_bias="0"
-    app:layout_constraintHeight_percent=".7"
-    />
+
+    <ProgressBar
+        android:id="@+id/pb_image_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:indeterminate="true"
+        android:indeterminateBehavior="repeat"
+
+        app:layout_constraintBottom_toBottomOf="@+id/iv_planet"
+        app:layout_constraintEnd_toEndOf="@+id/iv_planet"
+        app:layout_constraintStart_toStartOf="@+id/iv_planet"
+        app:layout_constraintTop_toTopOf="@+id/iv_planet"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintHeight_percent=".2"
+        app:layout_constraintWidth_percent=".2"
+        android:foregroundGravity="center|center_vertical"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_planet"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        />
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_school"
         android:layout_width="wrap_content"

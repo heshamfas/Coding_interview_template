@@ -8,9 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.NavDirections
-import androidx.navigation.fragment.findNavController
-
 import com.heshamfas.nasa_natural.R
 import com.heshamfas.nasa_natural.adapter.SchoolListAdapter
 import com.heshamfas.nasa_natural.entities.EarthInfo
@@ -37,7 +34,8 @@ class NaturalListFragment : Fragment() {
         super.onResume()
         tv_error.visibility = View.GONE
     }
-   private fun initUi(){
+
+    private fun initUi(){
     }
     private fun initObservers(){
         viewModel.nasaNatural.observe(viewLifecycleOwner , Observer{
@@ -59,18 +57,9 @@ class NaturalListFragment : Fragment() {
         if (!climates.isNullOrEmpty()) {
             Log.d(TAG, "climates are here ${climates.count()}")
             rv_ny_city_school.adapter = SchoolListAdapter(
-                climates.toMutableList(),
-                gotoDetails
-            )
+                climates.toMutableList())
         } else {
            //showNoInfoUi()
         }
-    }
-    private val gotoDetails = fun(dbn:String, name:String){
-       goToClimateDetail(dbn,name)
-    }
-    private fun goToClimateDetail(dbn:String, name:String){
-   /*         val directions:NavDirections = SchoolListFragmentDirections.actionSchoolListFragmentToSatDetailFragment(dbn,name)
-        findNavController().navigate(directions)*/
     }
 }
