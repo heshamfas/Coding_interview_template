@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/earth_info_nav"
+    app:startDestination="@id/earthInfoListFragment">
+    <fragment
+        android:id="@+id/earthInfoListFragment"
+        android:name="com.heshamfas.nasa_earth.ui.main.EarthInfoListFragment"
+        android:label="Earth Info"
+        tools:layout="@layout/earth_info_list_fragment" >
+    </fragment>
+</navigation>
