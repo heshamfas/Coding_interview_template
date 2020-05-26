@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Earth Info</string>
-    <string name="request_error">An error has occurred \n please try again</string>>
+    <string name="request_error">An error has occurred \n please try again\n %s</string>>
     <item name="button_with_percent" format="float" type="integer">0.5</item>
 </resources>

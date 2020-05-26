@@ -1,6 +1,7 @@
 package com.heshamfas.nasa_earth.network
 
 import com.heshamfas.nasa_earth.entities.NasaNatural
+import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.HeaderMap

@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryLightColor"
     tools:context=".ui.main.EarthInfoListFragment">
 
    <androidx.appcompat.widget.AppCompatTextView
@@ -17,17 +18,31 @@
        android:textColor="@android:color/holo_red_dark"
        android:textStyle="bold"
        android:text="@string/request_error"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_earth_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:foregroundGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias=".2"
+        app:layout_constraintHorizontal_bias=".5"
+        app:layout_constraintHeight_percent=".9"
+        app:layout_constraintWidth_percent=".99">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_earth_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:foregroundGravity="center"
         android:longClickable="false"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="100dp"
         android:orientation="vertical"
         app:reverseLayout="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
       />
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

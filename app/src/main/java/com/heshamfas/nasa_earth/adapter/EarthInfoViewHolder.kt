@@ -9,6 +9,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.heshamfas.nasa_earth.R
 import com.heshamfas.nasa_earth.utils.Utils
@@ -21,9 +22,12 @@ class EarthInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun onBind(earthInfo: EarthInfo) {
         itemView.pb_image_loading.visibility = View.VISIBLE
+        val imageUrl = Utils.getFormattedImageURL(earthInfo.date, earthInfo.image)
+        Log.d(TAG, "image url ${imageUrl}")
         Glide.with(itemView.context)
-            .load(Utils.getFormattedImageURL(earthInfo.date, earthInfo.image))
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .load(imageUrl)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            //.apply(RequestOptions.fitCenterTransform())
             .addListener(object : RequestListener<Drawable>{
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -53,6 +57,6 @@ class EarthInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .into(itemView.iv_planet)
             .clearOnDetach()
             itemView.tv_caption.text = earthInfo.caption
-
+            itemView.tv_tem.text = Utils.getFormattedCaptionDate(earthInfo.date)
         }
     }

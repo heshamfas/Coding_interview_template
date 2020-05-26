@@ -11,7 +11,9 @@ import androidx.lifecycle.Observer
 import com.heshamfas.nasa_earth.R
 import com.heshamfas.nasa_earth.adapter.EarthInfoListAdapter
 import com.heshamfas.nasa_earth.entities.EarthInfo
+import com.jakewharton.rxbinding4.swiperefreshlayout.refreshes
 import kotlinx.android.synthetic.main.earth_info_list_fragment.*
+import java.util.concurrent.TimeUnit
 
 class EarthInfoListFragment : Fragment() {
     private val TAG by lazy { this::class.java.simpleName }
@@ -36,10 +38,14 @@ class EarthInfoListFragment : Fragment() {
     }
 
     private fun initUi(){
-    }
+        srl_earth_info.refreshes()
+            .debounce(5,TimeUnit.SECONDS)
+            .subscribe {
+                viewModel.swipeRefreshPulled()
+            }
+        }
     private fun initObservers(){
         viewModel.nasaNatural.observe(viewLifecycleOwner , Observer{
-            tv_error.visibility = View.GONE
             Log.d(TAG, "earth info is here ${it}")
             processEarthList(it)
         })
@@ -50,16 +56,23 @@ class EarthInfoListFragment : Fragment() {
 
     private fun showError(error: Throwable){
         tv_error.visibility = View.VISIBLE
-        tv_error.text = "${getString(R.string.request_error)}  \n ${error?.localizedMessage}"
+        tv_error.text = getString(R.string.request_error , error.message)
+        srl_earth_info.visibility = View.GONE
+        srl_earth_info.isRefreshing = false
     }
-
+    private fun showInfoLayout (){
+        srl_earth_info.isRefreshing = false
+        srl_earth_info.visibility = View.VISIBLE
+        tv_error.visibility = View.GONE
+    }
     private fun processEarthList(earthInfo: List<EarthInfo>?) {
         if (!earthInfo.isNullOrEmpty()) {
             Log.d(TAG, "earth info is here ${earthInfo.count()}")
+            showInfoLayout()
             rv_earth_info.adapter = EarthInfoListAdapter(
                 earthInfo.toMutableList())
         } else {
-           //showNoInfoUi()
+           showError(Throwable("No Info Returned"))
         }
     }
 }

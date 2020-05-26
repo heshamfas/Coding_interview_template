@@ -24,7 +24,7 @@ class MainViewModel : ViewModel() {
      private fun getEarthInfoList(){
      model.getEarthInfoList()
          .subscribeBy(
-             onSuccess = {
+             onSuccess= {
                  nasaNatural.postValue(it)
              },
              onError = {
@@ -37,6 +37,10 @@ class MainViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         disposables.dispose()
+    }
+
+    fun swipeRefreshPulled() {
+        getEarthInfoList()
     }
 }
 
