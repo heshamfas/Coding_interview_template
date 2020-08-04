@@ -13,7 +13,7 @@ class SATViewModel constructor(): ViewModel() {
     constructor(dbn: String) : this() {
         this.dbn = dbn
     }
-    lateinit var dbn : String
+    private lateinit var dbn : String
     private val TAG by lazy { this::class.java.simpleName }
     val model = SchoolModel.shared
     private val disposables = CompositeDisposable()

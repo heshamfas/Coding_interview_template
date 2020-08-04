@@ -8,15 +8,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 
-class MainViewModel constructor(): ViewModel() {
+class MainViewModel : ViewModel() {
     lateinit var dbn : String
 
-/*    constructor(city: String) : this() {
-        this.city = city
-}*/
-/*    constructor(cityName: String){
-
-    }*/
     private val TAG by lazy { this::class.java.simpleName }
     val model = SchoolModel.shared
     private val disposables = CompositeDisposable()
@@ -39,19 +33,6 @@ class MainViewModel constructor(): ViewModel() {
          )
          .addTo(disposables)
  }
-   /* fun getSchoolList(city:String){
-        model.getSATForSchool(city)
-            .subscribeBy(
-                onSuccess = {
-                    cityData ->
-                    //.postValue(cityData)
-                },
-                onError = {
-                    responseError.postValue(it)
-                }
-            )
-            .addTo(disposables)
-    }*/
 
     override fun onCleared() {
         super.onCleared()
